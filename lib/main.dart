@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main_menu.dart';
+import 'package:mobi_games/pages/start_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const MainMenu(),
+      home: const StartPage(),
     );
   }
 }
