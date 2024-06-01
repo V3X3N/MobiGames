@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobi_games/design/design.dart';
+import 'package:mobi_games/design/colors.dart';
 import 'package:mobi_games/games/flappy_bird.dart';
 import 'package:mobi_games/games/hammer_game.dart';
 import 'package:mobi_games/games/reaction_time.dart';
