@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,6 +20,7 @@ class _ReactionTimeState extends State<ReactionTime> {
   Timer? reactionTimer;
   int reactionTime = 0;
   int displayedTime = 0;
+  final Random random = Random();
 
   void startGame() {
     setState(() {
@@ -40,7 +42,8 @@ class _ReactionTimeState extends State<ReactionTime> {
         lightColors[index] = Colors.green;
       });
 
-      Future.delayed(Duration(seconds: 1), () {
+      int delay = random.nextInt(2) + 1;
+      Future.delayed(Duration(seconds: delay), () {
         changeLights(index + 1);
       });
     } else {
@@ -106,13 +109,21 @@ class _ReactionTimeState extends State<ReactionTime> {
               ),
               SizedBox(height: 50),
               ElevatedButton(
-                onPressed: allGreen ? stopReactionTimer : null,
-                child: Text('Stop'),
+                onPressed: startGame,
+                child: Text('Start'),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                  textStyle: TextStyle(fontSize: 24),
+                ),
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: startGame,
-                child: Text('Start'),
+                onPressed: allGreen ? stopReactionTimer : null,
+                child: Text('Stop'),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                  textStyle: TextStyle(fontSize: 24),
+                ),
               ),
             ],
           ),
