@@ -1,12 +1,12 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
-import 'dart:async';
-import 'package:flutter/material.dart';
-import 'dart:async';
-import 'package:flutter/material.dart';
+void main() {
+  runApp(ReactionTime());
+}
 
 class ReactionTime extends StatefulWidget {
-  const ReactionTime({super.key});
+  const ReactionTime({Key? key}) : super(key: key);
 
   @override
   _ReactionTimeState createState() => _ReactionTimeState();
@@ -18,12 +18,14 @@ class _ReactionTimeState extends State<ReactionTime> {
   bool reactionStarted = false;
   Timer? reactionTimer;
   int reactionTime = 0;
+  int displayedTime = 0;
 
   void startGame() {
     setState(() {
       allGreen = false;
       reactionStarted = false;
       reactionTime = 0;
+      displayedTime = 0;
       lightColors = List<Color>.filled(5, Colors.red);
     });
 
@@ -67,6 +69,7 @@ class _ReactionTimeState extends State<ReactionTime> {
     }
     setState(() {
       reactionStarted = false;
+      displayedTime = reactionTime;
     });
   }
 
@@ -94,7 +97,11 @@ class _ReactionTimeState extends State<ReactionTime> {
               ),
               SizedBox(height: 50),
               Text(
-                reactionStarted ? '${reactionTime / 1000.0}s' : 'Press Start',
+                displayedTime > 0
+                    ? '${displayedTime / 1000.0}s'
+                    : (reactionStarted
+                        ? '${reactionTime / 1000.0}s'
+                        : 'Press Start'),
                 style: TextStyle(fontSize: 48),
               ),
               SizedBox(height: 50),
