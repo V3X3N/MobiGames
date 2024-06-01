@@ -4,7 +4,7 @@ import 'package:mobi_games/games/flappy_bird.dart';
 import 'package:mobi_games/games/hammer_game.dart';
 import 'package:mobi_games/games/reaction_time.dart';
 import 'package:mobi_games/games/snake.dart';
-import 'package:mobi_games/games/tic_tac_toe/tic_tac_toe.dart';
+import 'package:mobi_games/games/tic_tac_toe.dart';
 
 class MainMenu extends StatelessWidget {
   const MainMenu({super.key});
