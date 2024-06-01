@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobi_games/design/design.dart';
+import 'package:mobi_games/design/colors.dart';
 import 'package:mobi_games/pages/main_menu.dart';
 
 class HammerGame extends StatelessWidget {
