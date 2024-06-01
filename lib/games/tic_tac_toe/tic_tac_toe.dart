@@ -26,14 +26,6 @@ class _GameScreenState extends State<TicTacToe> {
   int seconds = maxSeconds;
   Timer? timer;
 
-  static var customFontWhite = GoogleFonts.coiny(
-    textStyle: const TextStyle(
-      color: Colors.white,
-      letterSpacing: 3,
-      fontSize: 28,
-    ),
-  );
-
   void startTimer() {
     timer = Timer.periodic(const Duration(seconds: 1), (_) {
       setState(() {
@@ -56,7 +48,7 @@ class _GameScreenState extends State<TicTacToe> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.TTTprimaryColor,
+      backgroundColor: AppColors.primaryColor,
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -69,13 +61,21 @@ class _GameScreenState extends State<TicTacToe> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
+                      const Text(
                         'Player O',
-                        style: customFontWhite,
+                        style: TextStyle(
+                          fontSize: 40,
+                          color: AppColors.blue,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       Text(
                         oScore.toString(),
-                        style: customFontWhite,
+                        style: const TextStyle(
+                          fontSize: 40,
+                          color: AppColors.blue,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
@@ -83,13 +83,21 @@ class _GameScreenState extends State<TicTacToe> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
+                      const Text(
                         'Player X',
-                        style: customFontWhite,
+                        style: TextStyle(
+                          fontSize: 40,
+                          color: AppColors.blue,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       Text(
                         xScore.toString(),
-                        style: customFontWhite,
+                        style: const TextStyle(
+                          fontSize: 40,
+                          color: AppColors.blue,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
@@ -141,7 +149,14 @@ class _GameScreenState extends State<TicTacToe> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(resultDeclaration, style: customFontWhite),
+                    Text(
+                      resultDeclaration,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: AppColors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     const SizedBox(height: 10),
                     _buildTimer()
                   ],
@@ -316,9 +331,9 @@ class _GameScreenState extends State<TicTacToe> {
                   child: Text(
                     '$seconds',
                     style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
                       fontSize: 50,
+                      color: AppColors.blue,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
@@ -337,7 +352,7 @@ class _GameScreenState extends State<TicTacToe> {
             },
             child: Text(
               attempts == 0 ? 'Start' : 'Play Again!',
-              style: const TextStyle(fontSize: 20, color: Colors.black),
+              style: const TextStyle(fontSize: 40, color: Colors.black),
             ),
           );
   }
