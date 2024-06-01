@@ -3,13 +3,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(ReactionTime());
+  runApp(const ReactionTime());
 }
 
 class ReactionTime extends StatefulWidget {
-  const ReactionTime({Key? key}) : super(key: key);
+  const ReactionTime({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _ReactionTimeState createState() => _ReactionTimeState();
 }
 
@@ -31,7 +32,7 @@ class _ReactionTimeState extends State<ReactionTime> {
       lightColors = List<Color>.filled(5, Colors.red);
     });
 
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       changeLights(0);
     });
   }
@@ -59,7 +60,7 @@ class _ReactionTimeState extends State<ReactionTime> {
       reactionStarted = true;
     });
 
-    reactionTimer = Timer.periodic(Duration(milliseconds: 10), (timer) {
+    reactionTimer = Timer.periodic(const Duration(milliseconds: 10), (timer) {
       setState(() {
         reactionTime += 10;
       });
@@ -81,7 +82,7 @@ class _ReactionTimeState extends State<ReactionTime> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Reaction Time Game'),
+          title: const Text('Reaction Time Game'),
         ),
         body: Center(
           child: Column(
@@ -91,39 +92,41 @@ class _ReactionTimeState extends State<ReactionTime> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: lightColors.map((color) {
                   return Container(
-                    margin: EdgeInsets.all(8.0),
+                    margin: const EdgeInsets.all(8.0),
                     width: 50,
                     height: 50,
                     color: color,
                   );
                 }).toList(),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               Text(
                 displayedTime > 0
                     ? '${displayedTime / 1000.0}s'
                     : (reactionStarted
                         ? '${reactionTime / 1000.0}s'
                         : 'Press Start'),
-                style: TextStyle(fontSize: 48),
+                style: const TextStyle(fontSize: 48),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               ElevatedButton(
                 onPressed: startGame,
-                child: Text('Start'),
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-                  textStyle: TextStyle(fontSize: 24),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                  textStyle: const TextStyle(fontSize: 24),
                 ),
+                child: const Text('Start'),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: allGreen ? stopReactionTimer : null,
-                child: Text('Stop'),
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-                  textStyle: TextStyle(fontSize: 24),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                  textStyle: const TextStyle(fontSize: 24),
                 ),
+                child: const Text('Stop'),
               ),
             ],
           ),
