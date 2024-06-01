@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobi_games/design/colors.dart';
 import 'dart:async';
-import 'package:google_fonts/google_fonts.dart';
 
 class TicTacToe extends StatefulWidget {
   const TicTacToe({super.key});
@@ -130,13 +129,12 @@ class _GameScreenState extends State<TicTacToe> {
                         child: Center(
                           child: Text(
                             displayXO[index],
-                            style: GoogleFonts.coiny(
-                                textStyle: TextStyle(
+                            style: TextStyle(
                               fontSize: 64,
                               color: matchedIndexes.contains(index)
                                   ? AppColors.TTTsecondaryColor
                                   : AppColors.TTTprimaryColor,
-                            )),
+                            ),
                           ),
                         ),
                       ),
